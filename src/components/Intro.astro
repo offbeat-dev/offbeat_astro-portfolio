@@ -1,0 +1,69 @@
+---
+import ProfilePic from "./ProfilePic.astro";
+---
+
+<section class="intro">
+  <div class="pic">
+    <ProfilePic />
+  </div>
+  <div class="rtf">
+    <h1>Hola!</h1>
+    <p>I'm Paulo! 👋</p>
+    <p>
+      I'm a frontend developer with a background in electronics and human
+      centered design currently working at <a
+        href="www.verndale.com"
+        target="_blank">Verndale</a
+      >. I'm passionate about problem-solving and connecting people through
+      meaningful and innovative experiences.
+    </p>
+    <p>
+      Throughout my career, I have been part of several projects that have
+      allowed me to explore and build experiences around the boundaries of both
+      physical and digital worlds. From websites to multimedia installations
+      using AR, VR and experimental interfaces, I have had the opportunity to
+      learn from many technologies and from amazing professionals using them
+      around the world.
+    </p>
+    <p>
+      Curiosity helps me keep up to date with new tools and I am always happy to
+      keep learning in order to successfully deliver new projects.
+    </p>
+    <p>I love pizza, unique color palettes and mountaineering.</p>
+  </div>
+  <style lang="scss">
+    @use "../styles/breakpoints";
+
+    .intro {
+      align-items: center;
+      margin-block: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      justify-content: center;
+
+      @include breakpoints.mq(desktop) {
+        flex-direction: row;
+      }
+
+      .rtf {
+        font-size: 18px;
+
+        @include breakpoints.mq(desktop) {
+          max-inline-size: 50%;
+        }
+      }
+
+      .pic {
+        min-inline-size: 400px;
+        max-inline-size: 400px;
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-block: 0;
+    }
+  </style>
+</section>

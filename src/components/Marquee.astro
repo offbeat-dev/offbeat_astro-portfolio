@@ -1,0 +1,150 @@
+---
+
+---
+
+<script>
+  import { scroll } from "framer-motion/dom";
+  import { inView } from "framer-motion/dom";
+
+  let isInview = false;
+  let scrollProgress = 0;
+  let scrollProgressOnEnter = scrollProgress;
+  let translationPercentNeeded = 0;
+
+  const el = document.querySelector(".marquee") as HTMLElement;
+  const marquees = el.querySelectorAll("div") as NodeListOf<HTMLElement>;
+
+  //check width of marquee and duplicate if needed
+  marquees.forEach((marquee, i) => {
+    const marqueeWidth = marquee.getBoundingClientRect().width;
+    const viewPortWidth = window.innerWidth;
+    const numberOfMarquees = Math.floor(viewPortWidth / marqueeWidth);
+    console.log(numberOfMarquees);
+
+    for (let i = 0; i < numberOfMarquees; i++) {
+      const content = (marquee as HTMLElement).querySelector(
+        "p",
+      ) as HTMLElement;
+
+      const clone = content.cloneNode(true) as HTMLElement;
+      marquee.appendChild(clone);
+
+      //calculate percent of translation needed to scroll through all the marquee
+
+      const marqueeContentWidth = marquee.scrollWidth;
+
+      translationPercentNeeded = (marqueeContentWidth / viewPortWidth) * 100;
+    }
+
+    //set initial position
+    if (i % 2 === 0) marquee.style.transform = `translateX(${-50}%)`;
+    else marquee.style.transform = `translateX(${-50}%)`;
+  });
+
+  inView(el, (info: any) => {
+    isInview = true;
+    scrollProgressOnEnter = scrollProgress;
+
+    return (leaveInfo: any) => {
+      isInview = false;
+    };
+  });
+
+  scroll((progress: number) => {
+    scrollProgress = progress;
+    if (isInview) {
+      marquees.forEach((marquee, i) => {
+        if (i % 2 === 0)
+          marquee.style.transform = `translateX(${
+            (scrollProgress - scrollProgressOnEnter) *
+              translationPercentNeeded -
+            50
+          }%
+       )`;
+        else
+          marquee.style.transform = `translateX(${
+            (scrollProgress - scrollProgressOnEnter) *
+              -translationPercentNeeded -
+            50
+          }%
+       )`;
+
+        if (scrollProgress % 0.075 < 0.01) {
+          const spans = marquee.querySelectorAll(
+            "span",
+          ) as NodeListOf<HTMLElement>;
+          const randomSpan1 = spans[Math.floor(Math.random() * spans.length)];
+          const randomSpan2 = spans[Math.floor(Math.random() * spans.length)];
+          const randomSpan3 = spans[Math.floor(Math.random() * spans.length)];
+          const randomSpan4 = spans[Math.floor(Math.random() * spans.length)];
+
+          spans.forEach((span) => {
+            span.style.color = `#aaa`;
+          });
+          randomSpan1.style.color = `#032eff`;
+          randomSpan2.style.color = `#032eff`;
+          randomSpan3.style.color = `#032eff`;
+          randomSpan4.style.color = `#032eff`;
+        }
+      });
+    }
+  });
+</script>
+
+<section class="marquee">
+  <div>
+    <p>
+      <span>react</span><span>handlebars</span><span>vue</span><span
+        >svelte</span
+      ><span>nuxt</span><span>next</span><span>openai</span><span>tailwind</span
+      ><span>pug</span>
+    </p>
+  </div>
+  <div>
+    <p>
+      <span>websockets</span><span>threejs</span><span>strapi</span><span
+        >supabase</span
+      ><span>sass</span><span>graphql</span><span>gsap</span>
+    </p>
+  </div>
+</section>
+<style>
+  .marquee {
+    margin-block: 200px;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      background: linear-gradient(
+        to left,
+        #ffffff,
+        #ffffff 5%,
+        transparent 10%,
+        transparent 90%,
+        #ffffff 95%,
+        #ffffff 100%
+      );
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  p {
+    display: inline;
+    white-space: nowrap;
+  }
+
+  div {
+    inline-size: 100%;
+    text-align: center;
+  }
+
+  span {
+    font-weight: 900;
+    font-size: 45px;
+    padding-inline: 20px;
+    color: #aaa;
+    transition: color 0.5s ease-in-out;
+  }
+</style>

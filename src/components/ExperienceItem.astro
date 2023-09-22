@@ -1,0 +1,125 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  date: string;
+  company: string;
+  href?: string;
+}
+
+const { href, title, body, date, company } = Astro.props;
+---
+
+<a class="link-card" href={href} target="_blank">
+  <span class="line line--top"></span>
+  <div class="info">
+    <span class="pill">{company}</span>
+    <span class="date">{date}</span>
+  </div>
+  <h2>
+    {title}
+  </h2>
+  <p>
+    {body}
+  </p>
+  <span class="line line--bottom"></span>
+</a>
+<style lang="scss">
+  .info {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .pill {
+    color: #777;
+    font-size: 14px;
+    background: #f2f2f2;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    inline-size: fit-content;
+    margin-block-end: 10px;
+  }
+
+  .line {
+    background-image: linear-gradient(to right, #032eff 0, #032eff 100%);
+    background-repeat: no-repeat;
+    block-size: 2px;
+    background-size: 0% 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    transition: background-size 0.75s ease-in-out;
+
+    &--top {
+      inset-block-start: -2px;
+    }
+
+    &--bottom {
+      inset-block-end: -2px;
+    }
+  }
+
+  .date {
+    color: #888888;
+    font-weight: normal;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    margin-block-end: 10px;
+  }
+
+  .link-card {
+    border-block: 2px solid #f2f2f2;
+    background: white;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding-block: 40px;
+    position: relative;
+    transition: all 1s ease-in-out;
+    text-decoration: none;
+
+    &:not(:first-child) {
+      border-block-start: 0;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: white;
+    padding: 40px 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-block-start: 10px;
+  }
+  p {
+    margin-block-start: 10px;
+  }
+  .link-card:is(:hover, :focus-within) {
+    .date {
+      color: #032eff;
+    }
+
+    .pill {
+      background: #032eff;
+      color: white;
+    }
+
+    .line--top {
+      background-size: 100% 100%;
+    }
+
+    .line--bottom {
+      background-size: 100% 100%;
+    }
+  }
+</style>

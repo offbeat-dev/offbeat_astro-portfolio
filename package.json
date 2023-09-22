@@ -1,0 +1,27 @@
+{
+  "name": "offbeat-astro-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "fmt": "prettier --write --plugin-search-dir=. ."
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.22",
+    "astro": "^3.0.8",
+    "framer-motion": "^10.16.4",
+    "sass-mq": "^6.0.0",
+    "scss-reset": "^1.4.2"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.1.54",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "sass": "^1.66.1",
+    "unplugin-icons": "^0.17.0"
+  }
+}

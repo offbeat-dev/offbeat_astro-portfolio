@@ -1,0 +1,39 @@
+---
+
+---
+
+<script>
+  const overlayDivs = document.querySelectorAll(".overlay-div");
+  overlayDivs.forEach((div, i) => {
+    (div as HTMLElement).style.transform =
+      i % 2 === 0 ? "translateX(-100%)" : "translateX(100%)";
+  });
+</script>
+<div class="intro-animation">
+  <div class="overlay-div"></div>
+  <div class="overlay-div"></div>
+</div>
+
+<style>
+  .intro-animation {
+    overflow: hidden;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .overlay-div {
+    background-color: black;
+    position: absolute;
+    inset-block: 0;
+    inline-size: 50%;
+    block-size: 100%;
+    z-index: 1;
+    transition: all 0.5s ease-in;
+
+    &:nth-child(2) {
+      inset-inline-end: 0;
+    }
+  }
+</style>

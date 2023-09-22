@@ -1,0 +1,64 @@
+---
+import Container from "./Container.astro";
+import IconGithub from "~icons/mdi/github";
+import IconLinkedin from "~icons/mdi/linkedin";
+import IconFileDownload from "~icons/mdi/file-download-outline";
+---
+
+<Container>
+  <footer class="footer">
+    <div class="footer__icons">
+      <a
+        href="https://github.com/offbeat-dev"
+        target="_blank"
+        class="header__icon"
+      >
+        <IconGithub style={{ fontSize: "24px" }} /></a
+      >
+      <a
+        href="https://www.linkedin.com/in/pauloguerraf/"
+        target="_blank"
+        class="header__icon"
+      >
+        <IconLinkedin style={{ fontSize: "24px" }} /></a
+      >
+      <a
+        href="https://www.linkedin.com/in/pauloguerraf/"
+        target="_blank"
+        class="header__icon"
+      >
+        <IconFileDownload style={{ fontSize: "24px" }} /></a
+      >
+    </div>
+     This website was built using <a href="https://astro.build/">Astro 3.0</a>
+     and is hosted on <a href="https://vercel.com/">Vercel</a>.
+  </footer>
+</Container>
+
+<style lang="scss">
+  .footer {
+    padding: 1rem;
+    text-align: center;
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: #032eff;
+      }
+    }
+  }
+
+  .footer__icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-inline: auto;
+    margin-block: 20px;
+  }
+</style>

@@ -1,0 +1,9 @@
+@forward "sass-mq/mq" with (
+  $breakpoints: (
+    mobile: 360px,
+    tablet: 768px,
+    desktop: 1040px,
+    large: 1440px,
+    wide: 1980px,
+  )
+);

@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import profilePic from "../images/profile-pic-4.png";
+---
+
+<Image src={profilePic} alt="Paulo's profile pic" />
+<style>
+  img {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: block;
+    inline-size: 100%;
+    margin: auto;
+  }
+</style>

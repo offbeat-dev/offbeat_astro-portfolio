@@ -1,0 +1,113 @@
+---
+import Container from "./Container.astro";
+import IconGithub from "~icons/mdi/github";
+import IconLinkedin from "~icons/mdi/linkedin";
+import IconFileDownload from "~icons/mdi/file-download-outline";
+---
+
+<script>
+  // import { animate } from "framer-motion/dom";
+  // const logo = document.querySelector(".header__logo");
+  // animate(logo, { y: [50, 0] }, { delay: 0.35, duration: 2, type: "spring" });
+</script>
+<header class="header">
+  <Container>
+    <div class="header__items">
+      <a class="header__logo" href="/"><span class="name">paulo</span>codes</a>
+      <div class="header__right">
+        <a
+          href="https://github.com/offbeat-dev"
+          target="_blank"
+          class="header__icon"
+        >
+          <IconGithub style={{ fontSize: "24px" }} /></a
+        >
+        <a
+          href="https://www.linkedin.com/in/pauloguerraf/"
+          target="_blank"
+          class="header__icon"
+        >
+          <IconLinkedin style={{ fontSize: "24px" }} /></a
+        >
+        <a
+          href="/documents/ResumePauloGuerra.pdf"
+          target="_blank"
+          class="header__icon"
+        >
+          <IconFileDownload style={{ fontSize: "24px" }} /></a
+        >
+      </div>
+    </div>
+  </Container>
+  <style lang="scss">
+    .header {
+      background: white;
+      position: fixed;
+      inline-size: 100%;
+      z-index: 999;
+    }
+
+    .header__items {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header__logo {
+      color: #032eff;
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 900;
+      inline-size: fit-content;
+      text-decoration: none;
+
+      .name {
+        color: black;
+        font-size: 30px;
+        font-weight: 900;
+        padding-inline-end: 20px;
+        position: relative;
+
+        &::after {
+          content: "";
+          background: linear-gradient(
+            to right,
+            #ffffff,
+            #ffffff 50%,
+            #032eff 50%,
+            #032eff
+          );
+          position: absolute;
+          inset-block-end: 6px;
+          inset-inline-end: 5px;
+          inline-size: 8px;
+          block-size: 8px;
+          border-radius: 50%;
+          border: 1px solid black;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+
+      &:hover {
+        span::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .header__right {
+      align-items: center;
+      display: flex;
+      gap: 20px;
+      inline-size: fit-content;
+    }
+
+    .header__icon {
+      color: black;
+
+      &:hover {
+        color: #032eff;
+      }
+    }
+  </style>
+</header>

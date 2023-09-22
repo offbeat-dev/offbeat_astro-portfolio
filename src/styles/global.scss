@@ -1,0 +1,73 @@
+@use "scss-reset/reset";
+@use "rtf";
+@use "breakpoints";
+/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+  font-family: "Amphora";
+  src: url("/fonts/Amphora/Amphora-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Barracuda";
+  src: url("/fonts/Barracuda/Barracuda-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plexus Sans";
+  src: url("/fonts/Plexus/PlexusSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plexus Sans";
+  src: url("/fonts/Plexus/PlexusSans-Medium.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plexus Sans";
+  src: url("/fonts/Plexus/PlexusSans-Bold.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Venus+Acier";
+  src: url("/fonts/Venus/Venus+Acier.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Venus+Plomb";
+  src: url("/fonts/Venus/Venus+Plomb.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+}
+
+html {
+  font-family: "Plexus Sans";
+  background: #ffffff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}

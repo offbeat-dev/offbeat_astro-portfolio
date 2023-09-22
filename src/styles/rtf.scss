@@ -1,0 +1,18 @@
+.rtf {
+  font-size: 16px;
+
+  p:not(first-child):not(:last-child) {
+    margin-block: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #032eff;
+    font-weight: 900;
+
+    &:is(:hover, :focus-within) {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+}
