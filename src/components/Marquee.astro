@@ -33,7 +33,8 @@
 
       const marqueeContentWidth = marquee.scrollWidth;
 
-      translationPercentNeeded = (marqueeContentWidth / viewPortWidth) * 100;
+      translationPercentNeeded =
+        1920 * (marqueeContentWidth / viewPortWidth) * 100;
     }
 
     //set initial position
