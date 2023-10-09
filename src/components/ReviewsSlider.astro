@@ -1,0 +1,99 @@
+---
+
+---
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css/core";
+
+  new Splide(".splide", {
+    type: "loop",
+    autoplay: true,
+    speed: 2000,
+    interval: 3000,
+    pauseOnHover: true,
+    pagination: false,
+    arrows: false,
+    perPage: 3,
+    perMove: 1,
+    gap: "1rem",
+    breakpoints: {
+      640: {
+        perPage: 1,
+      },
+      1040: {
+        perPage: 2,
+      },
+    },
+  }).mount();
+</script>
+
+<section class="reviews">
+  <div class="splide" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <a
+            href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
+          >
+            "He is super skilled and pays attention to every detail of the
+            process."
+          </a>
+        </li>
+        <li class="splide__slide">
+          <a
+            href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
+          >
+            "Paulo has a collaborative and positive attitude towards every
+            project, making him a joy to work with. He is a reference in
+            animations, always paying attention to detail and timing."
+          </a>
+          <li class="splide__slide">
+            <a
+              href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
+            >
+              "He consistently demonstrated exceptional coding skills,
+              dependability, and a willingness to learn."
+            </a>
+            <li class="splide__slide">
+              <a
+                href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
+              >
+                "Paulo is one of the 6 people in the world I would work a whole
+                lifetime with, no questions asked."
+              </a>
+            </li>
+          </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<style>
+  .reviews {
+    margin-block: 100px;
+  }
+
+  .splide__slide {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    min-block-size: 200px;
+  }
+
+  a {
+    block-size: 100%;
+    border: 2px solid #f2f2f2;
+    border-radius: 20px;
+    color: black;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  a:is(:hover) {
+    color: #032eff;
+    border-color: #032eff;
+  }
+</style>

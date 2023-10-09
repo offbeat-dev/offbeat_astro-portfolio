@@ -17,7 +17,7 @@ const { href, title, body, role, techStack, image } = Astro.props;
   <div class="content">
     <span class="pill">Website</span>
     {image && <img src={image} alt={title} />}
-    {!image && <div class="placeholder">can't share preview</div>}
+    {!image && <div class="placeholder">private</div>}
     <div class="text-content">
       <h2>
         {title}
@@ -64,6 +64,7 @@ const { href, title, body, role, techStack, image } = Astro.props;
     block-size: 100%;
     cursor: pointer;
     display: block;
+
     list-style: none;
     padding: 4px;
     position: relative;
@@ -79,6 +80,7 @@ const { href, title, body, role, techStack, image } = Astro.props;
 
   img,
   .placeholder {
+    border-radius: 6px 6px 0 0;
     aspect-ratio: 1200/900;
     display: inline-block;
     object-fit: cover;
@@ -128,6 +130,7 @@ const { href, title, body, role, techStack, image } = Astro.props;
   }
 
   p {
+    line-height: 1.3;
     margin-block-start: 10px;
   }
 
