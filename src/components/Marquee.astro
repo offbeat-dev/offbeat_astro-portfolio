@@ -2,126 +2,58 @@
 
 ---
 
-<script>
-  import { scroll } from "framer-motion/dom";
-  import { inView } from "framer-motion/dom";
+<script></script>
+<section>
+  <h2>tools</h2>
 
-  let isInview = false;
-  let scrollProgress = 0;
-  let scrollProgressOnEnter = scrollProgress;
-  let translationPercentNeeded = 0;
-
-  const el = document.querySelector(".marquee") as HTMLElement;
-  const marquees = el.querySelectorAll("div") as NodeListOf<HTMLElement>;
-
-  //check width of marquee and duplicate if needed
-  marquees.forEach((marquee, i) => {
-    const marqueeWidth = marquee.getBoundingClientRect().width;
-    const viewPortWidth = window.innerWidth;
-    const numberOfMarquees = Math.floor(viewPortWidth / marqueeWidth);
-
-    for (let i = 0; i < numberOfMarquees; i++) {
-      const content = (marquee as HTMLElement).querySelector(
-        "p",
-      ) as HTMLElement;
-
-      const clone = content.cloneNode(true) as HTMLElement;
-      marquee.appendChild(clone);
-
-      //calculate percent of translation needed to scroll through all the marquee
-
-      const marqueeContentWidth = marquee.scrollWidth;
-
-      translationPercentNeeded = (marqueeContentWidth / viewPortWidth) * 100;
-    }
-
-    //set initial position
-    if (i % 2 === 0) marquee.style.transform = `translateX(${-50}%)`;
-    else marquee.style.transform = `translateX(${-50}%)`;
-  });
-
-  inView(el, (info: any) => {
-    isInview = true;
-    scrollProgressOnEnter = scrollProgress;
-
-    return (leaveInfo: any) => {
-      isInview = false;
-    };
-  });
-
-  scroll((progress: number) => {
-    scrollProgress = progress;
-    if (isInview) {
-      marquees.forEach((marquee, i) => {
-        if (i % 2 === 0)
-          marquee.style.transform = `translateX(${
-            (scrollProgress - scrollProgressOnEnter) *
-              translationPercentNeeded -
-            50
-          }%
-       )`;
-        else
-          marquee.style.transform = `translateX(${
-            (scrollProgress - scrollProgressOnEnter) *
-              -translationPercentNeeded -
-            50
-          }%
-       )`;
-
-        if (scrollProgress % 0.075 < 0.01) {
-          const spans = marquee.querySelectorAll(
-            "span",
-          ) as NodeListOf<HTMLElement>;
-          const randomSpan1 = spans[Math.floor(Math.random() * spans.length)];
-          const randomSpan2 = spans[Math.floor(Math.random() * spans.length)];
-          const randomSpan3 = spans[Math.floor(Math.random() * spans.length)];
-          const randomSpan4 = spans[Math.floor(Math.random() * spans.length)];
-
-          spans.forEach((span) => {
-            span.style.color = `#aaa`;
-          });
-          randomSpan1.style.color = `#032eff`;
-          randomSpan2.style.color = `#032eff`;
-          randomSpan3.style.color = `#032eff`;
-          randomSpan4.style.color = `#032eff`;
-        }
-      });
-    }
-  });
-</script>
-
-<section class="marquee">
-  <div>
-    <p>
-      <span>react</span><span>handlebars</span><span>vue</span><span
-        >svelte</span
-      ><span>nuxt</span><span>next</span><span>openai</span><span>tailwind</span
-      ><span>pug</span>
-    </p>
-  </div>
-  <div>
-    <p>
-      <span>websockets</span><span>threejs</span><span>strapi</span><span
-        >supabase</span
-      ><span>sass</span><span>graphql</span><span>vitest</span><span>gsap</span>
-    </p>
+  <div class="marquee">
+    <div class="marquee__inner">
+      <span>react</span><span>vite</span><span>handlebars</span><span>vue</span
+      ><span>svelte</span><span>nuxt</span><span>next</span><span>openai</span
+      ><span>tailwind</span><span>pug</span><span>react</span><span>vite</span
+      ><span>handlebars</span><span>vue</span><span>svelte</span><span
+        >nuxt</span
+      ><span>next</span><span>openai</span><span>tailwind</span><span>pug</span>
+    </div>
+    <div class="marquee__inner" data-direction="reverse">
+      <span>sass</span><span>lit</span><span>vitest</span><span>webflow</span
+      ><span>gsap</span><span>framer-motion</span><span>websockets</span><span
+        >threejs</span
+      ><span>strapi</span><span>supabase</span><span>graphql</span><span
+        >sass</span
+      ><span>lit</span><span>vitest</span><span>webflow</span><span>gsap</span
+      ><span>framer-motion</span><span>websockets</span><span>threejs</span
+      ><span>strapi</span><span>supabase</span><span>graphql</span>
+    </div>
   </div>
 </section>
+
 <style>
+  section {
+    margin-block: 100px;
+  }
+  h2 {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 40px;
+  }
   .marquee {
-    margin-block: 200px;
     overflow: hidden;
+    margin-block: 50px;
     position: relative;
+    --offset: 0px;
+    --move-initial: calc(0 + var(--offset));
+    --move-final: calc(-50% + var(--offset));
 
     &::after {
       content: "";
       background: linear-gradient(
         to left,
         #ffffff,
-        #ffffff 5%,
-        transparent 10%,
-        transparent 90%,
-        #ffffff 95%,
+        #ffffff 2%,
+        transparent 8%,
+        transparent 92%,
+        #ffffff 98%,
         #ffffff 100%
       );
       position: absolute;
@@ -129,14 +61,21 @@
     }
   }
 
-  p {
-    display: inline;
-    white-space: nowrap;
+  .marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 15s linear infinite;
   }
 
-  div {
-    inline-size: 100%;
-    text-align: center;
+  .marquee__inner[data-direction="reverse"] {
+    transform: translate3d(var(--move-final), 0, 0);
+    animation-direction: reverse;
+  }
+
+  .marquee__inner + .marquee__inner {
+    margin-block-start: 10px;
   }
 
   span {
@@ -144,6 +83,17 @@
     font-size: 45px;
     padding-inline: 20px;
     color: #aaa;
+    white-space: nowrap;
     transition: color 0.5s ease-in-out;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+      transform: translate3d(var(--move-final), 0, 0);
+    }
   }
 </style>
