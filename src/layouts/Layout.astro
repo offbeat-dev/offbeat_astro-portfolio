@@ -12,22 +12,24 @@ const { title } = Astro.props;
 ---
 
 <script>
-  import Lenis from "@studio-freight/lenis";
+  // import Lenis from "@studio-freight/lenis";
 
-  const lenis = new Lenis();
+  // const lenis = new Lenis();
+  // lenis.stop();
 
-  lenis.on("scroll", (e: Event) => {});
+  // function raf(time: number) {
+  //   lenis.raf(time);
+  //   requestAnimationFrame(raf);
+  // }
 
-  function raf(time: number) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
+  // window.addEventListener("resize", () => {
+  //   lenis.resize();
+  // });
 
-  window.addEventListener("resize", () => {
-    lenis.resize();
-  });
-
-  requestAnimationFrame(raf);
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   lenis.start();
+  //   requestAnimationFrame(raf);
+  // });
 </script>
 
 <html lang="en">
