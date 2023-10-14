@@ -13,7 +13,7 @@ interface Props {
 const { href, title, body, role, techStack, image } = Astro.props;
 ---
 
-<a class="link-card" href={href}>
+<a class="link-card" href={href} target="_blank">
   <div class="content">
     <span class="pill">Website</span>
     {image && <img src={image} alt={title} />}
