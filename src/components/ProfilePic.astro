@@ -5,11 +5,14 @@ import { Image } from "astro:assets";
 <img src="/images/profilepic.png" alt="Paulo's profile pic" />
 <style>
   img {
+    max-inline-size: 300px;
     aspect-ratio: 1 / 1;
     display: block;
-    border-radius: 20px;
+    border-radius: 50%;
     inline-size: 100%;
     margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 20px 0px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 20px 0px;
+    margin-block-end: 30px;
+    filter: grayscale(15%) sepia(15%);
   }
 </style>

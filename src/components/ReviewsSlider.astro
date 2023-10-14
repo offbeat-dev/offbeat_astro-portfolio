@@ -35,32 +35,56 @@
         <li class="splide__slide">
           <a
             href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
-          >
-            "He is super skilled and pays attention to every detail of the
-            process."
+            ><p class="review">
+              "He is super skilled and pays attention to every detail of the
+              process."
+            </p>
+            <div class="review-info">
+              <span class="author">Norman D.</span>
+              <span class="position">
+                Designer & Founder at UNDESIGNED <br /> Jury at Awwwards
+              </span>
+            </div>
           </a>
         </li>
         <li class="splide__slide">
           <a
             href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
-          >
-            "Paulo has a collaborative and positive attitude towards every
-            project, making him a joy to work with. He is a reference in
-            animations, always paying attention to detail and timing."
+            ><p class="review">
+              "Paulo has a collaborative and positive attitude towards every
+              project, making him a joy to work with. He is a reference in
+              animations, always paying attention to detail and timing."
+            </p>
+            <div class="review-info">
+              <span class="author">Ana V.</span>
+              <span class="position">Front-end Engineer at Verndale</span>
+            </div>
           </a>
           <li class="splide__slide">
             <a
               href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
             >
-              "He consistently demonstrated exceptional coding skills,
-              dependability, and a willingness to learn."
+              <p class="review">
+                "He consistently demonstrated exceptional coding skills,
+                dependability, and a willingness to learn."
+              </p>
+              <div class="review-info">
+                <span class="author">Andrew R.</span>
+                <span class="position">Lead UI/Front-End Dev, Consultant</span>
+              </div>
             </a>
             <li class="splide__slide">
               <a
                 href="https://www.linkedin.com/in/pauloguerraf/details/recommendations/"
               >
-                "Paulo is one of the 6 people in the world I would work a whole
-                lifetime with, no questions asked."
+                <p class="review">
+                  "Paulo is one of the 6 people in the world I would work a
+                  whole lifetime with, no questions asked."
+                </p>
+                <div class="review-info">
+                  <span class="author">Alessandro G.</span>
+                  <span class="position">Engineering Manager at Google</span>
+                </div>
               </a>
             </li>
           </li>
@@ -76,8 +100,8 @@
 
   .splide__slide {
     font-size: 20px;
-    font-weight: 900;
-    letter-spacing: 2px;
+    font-weight: 600;
+    letter-spacing: 0px;
     min-block-size: 200px;
   }
 
@@ -86,8 +110,10 @@
     border: 2px solid #f2f2f2;
     border-radius: 20px;
     color: black;
-    display: block;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
   }
@@ -95,5 +121,27 @@
   a:is(:hover) {
     color: #032eff;
     border-color: #032eff;
+  }
+
+  .review {
+    flex-grow: 1;
+  }
+
+  .review-info {
+    align-self: flex-end;
+  }
+
+  .author {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+  .position {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
   }
 </style>
