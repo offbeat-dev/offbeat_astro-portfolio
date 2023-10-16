@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/experiments/:match*",
+      "destination": "https://experiments.paulo.codes/:match*"
+    }
+  ]
+}
