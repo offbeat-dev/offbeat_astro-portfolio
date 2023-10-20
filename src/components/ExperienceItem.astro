@@ -19,9 +19,7 @@ const { href, title, body, date, company } = Astro.props;
   <h2>
     {title}
   </h2>
-  <p>
-    {body}
-  </p>
+  <div class="description" set:html={body} />
   <span class="line line--bottom"></span>
 </a>
 <style lang="scss">
@@ -101,7 +99,7 @@ const { href, title, body, date, company } = Astro.props;
     font-weight: 700;
     margin-block-start: 10px;
   }
-  p {
+  .description {
     font-size: 18px;
     line-height: 1.5;
     margin-block-start: 10px;
