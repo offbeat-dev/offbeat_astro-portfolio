@@ -3,21 +3,18 @@ import ProfilePic from "./ProfilePic.astro";
 ---
 
 <section class="intro">
-  <div class="pic">
-    <ProfilePic />
-  </div>
-  <div class="rtf">
-    <h1>Hola!</h1>
-    <p>I'm Paulo! 👋</p>
+  <!-- <div class="pic">
+   <ProfilePic /> 
+</div> -->
+  <div class="intro-text">
     <p>
-      I'm a frontend developer with a background in electronics and human
-      centered design currently working at <a
+      Hola I'm Paulo, a front-end engineer with a background in electronics and
+      human centered design. Currently creating at <a
         href="www.verndale.com"
-        target="_blank">Verndale</a
-      >. I'm passionate about problem-solving and connecting people through
-      meaningful and innovative experiences.
+        target="_blank">VERNDALE</a
+      >.
     </p>
-    <p>
+    <!-- <p>
       Throughout my career, I have been part of several projects that have
       allowed me to explore and build experiences around the boundaries of both
       physical and digital worlds. From websites to multimedia installations
@@ -30,18 +27,14 @@ import ProfilePic from "./ProfilePic.astro";
       to continuously expand my knowledge to ensure the successful execution of
       new projects.
     </p>
-    <p>I love pizza 🍕, unique color palettes 🎨 and mountaineering 🏔️.</p>
+    <p>I love pizza 🍕, unique color palettes 🎨 and mountaineering 🏔️.</p> -->
   </div>
   <style lang="scss">
     @use "../styles/breakpoints";
 
     .intro {
       align-items: center;
-      margin-block: 100px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: center;
+      margin-block: 200px;
 
       @include breakpoints.mq(desktop) {
         align-items: flex-start;
@@ -59,6 +52,21 @@ import ProfilePic from "./ProfilePic.astro";
       .pic {
         min-inline-size: 400px;
         max-inline-size: 400px;
+      }
+    }
+
+    .intro-text {
+      font-size: clamp(1.25rem, 2vw, 2rem);
+      line-height: 1.5;
+      max-inline-size: 100%;
+
+      @include breakpoints.mq(desktop) {
+        max-inline-size: 60%;
+      }
+
+      a {
+        font-weight: 600;
+        color: #000;
       }
     }
 

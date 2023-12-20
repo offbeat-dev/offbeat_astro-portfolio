@@ -13,6 +13,9 @@ npm create astro@latest -- --template basics
 ![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
 ## 🚀 Project Structure
+My PI Profile
+
+Specialist - Specialists are cautious, introspective, and highly loyal to authority. They value details and need to fully understand a topic before making decisions. Supportive and collaborative, they don't obsess over having things their way but they do obsess over getting things right.
 
 Inside of your Astro project, you'll see the following folders and files:
 

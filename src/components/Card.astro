@@ -16,8 +16,8 @@ const { href, title, body, role, techStack, image } = Astro.props;
 <a class="link-card" href={href} target="_blank">
   <div class="content">
     <span class="pill">Website</span>
-    {image && <img src={image} alt={title} />}
-    {!image && <div class="placeholder">private</div>}
+    <!-- {image && <img src={image} alt={title} />}
+    {!image && <div class="placeholder">private</div>} -->
     <div class="text-content">
       <h2>
         {title}
@@ -80,6 +80,7 @@ const { href, title, body, role, techStack, image } = Astro.props;
     aspect-ratio: 1200/900;
     display: inline-block;
     object-fit: cover;
+    object-position: left top;
     inline-size: 100%;
     block-size: auto;
   }
@@ -103,7 +104,7 @@ const { href, title, body, role, techStack, image } = Astro.props;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    padding: 20px;
+    padding: 40px 20px 20px;
   }
 
   .content {
@@ -132,16 +133,16 @@ const { href, title, body, role, techStack, image } = Astro.props;
 
   .link-card:is(:hover, :focus-within) {
     .role {
-      color: #032eff;
+      color: #333;
     }
     .pill {
-      background: #032eff;
+      background: #333;
       color: white;
     }
 
     .tech-stack {
-      color: #032eff;
+      color: #333;
     }
-    background: #032eff;
+    background: #333;
   }
 </style>
