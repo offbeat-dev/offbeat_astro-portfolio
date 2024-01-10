@@ -2,12 +2,10 @@
 interface Props {
   title: string;
 }
+import "../styles/global.scss";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
 import IntroAnimation from "../components/IntroAnimation.astro";
-import "../styles/global.scss";
-
 const { title } = Astro.props;
 ---
 
@@ -26,10 +24,9 @@ const { title } = Astro.props;
   //   lenis.resize();
   // });
 
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   lenis.start();
-  //   requestAnimationFrame(raf);
-  // });
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
 </script>
 
 <html lang="en">
@@ -37,6 +34,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Front-end Engineer" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/styles/global.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
