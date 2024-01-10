@@ -29,12 +29,16 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Front-end Engineer" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Paulo Guerra Figueiredo. // paulo.codes</title>
+    <title>Paulo Guerra Figueiredo // paulo.codes</title>
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:site_name"
+      content="Paulo Guerra Figueiredo portfolio // paulo.codes"
+    />
     <meta
       name="description"
       property="og:description"
@@ -43,8 +47,25 @@ const { title } = Astro.props;
     />
     <meta
       property="og:title"
-      content="Paulo Guerra Figueiredo. // paulo.codes"
+      content="Paulo Guerra Figueiredo // paulo.codes"
     />
+    <meta
+      name="description"
+      property="og:description"
+      content="Front-end Engineer with a background in electronics and human centered design. 
+      I love to build things that are useful and delightful."
+    />
+    <meta
+      name="twitter:title"
+      content="Paulo Guerra Figueiredo // paulo.codes"
+    />
+    <meta
+      name="twitter:description"
+      content="Front-end Engineer with a background in electronics and human centered design. 
+      I love to build things that are useful and delightful."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content="Paulo Guerra Figueiredo" />
   </head>
   <body>
     <Header />
